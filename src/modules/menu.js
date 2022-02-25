@@ -14,10 +14,11 @@ const menu = () => {
     };
 
     menuBtn.addEventListener('click', handleMenu);
-    closeBtn.addEventListener('click', handleMenu);
-    for (let i = 0; i < menuItems.length; i++) {
-        menuItems[i].addEventListener('click', handleMenu);
-    }
+    closeBtn.addEventListener('click', () => {
+        event.preventDefault();
+        handleMenu();
+    });
+    // это перебор кнопок 
     menuItems.forEach(menuItem => menuItem.addEventListener('click', handleMenu));
 
 };
