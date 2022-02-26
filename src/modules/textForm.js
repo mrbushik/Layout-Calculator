@@ -1,34 +1,25 @@
 const textForm = () => {
-    // const formOne = document.getElementById('form1');
     const mainName = document.getElementById('form1-name');
     const mainEmail = document.getElementById('form1-email');
     const mainNumber = document.getElementById('form1-phone');
-    const calcInput = document.querySelectorAll('.calc-item')
-    console.log(calcInput)
-    // formOne.addEventListener('submit', (e) => {
-    //     e.preventDefault();
-    //     let isError = false;
-    //     if (!/[^а-яА-Я]/g.test(mainName.value) && mainName.value !== '') {
-    //         alert('Только кирилица good');
-    //     } else {
-    //         isError = true;
-    //     }
-    //     if(!//g.test(mainEmail))
-    //     if (!isError) {
-    //         alert('данные отправленны');
-    //     }
-    // });
+    const calcInput = document.querySelectorAll('.calc-item');
+    const questionFormName = document.getElementById('form2-name');
+    const questionFormEmail = document.getElementById('form2-email');
+    const questionFormNumber = document.getElementById('form2-phone');
+    const questionFormMassage = document.getElementById('form2-message');
 
+    //Первая форма
+    console.log(questionFormName)
     mainName.addEventListener('input', (e) => {
         e.target.value = e.target.value.replace(/[^а-яА-Я]/, '');
     });
-
     mainEmail.addEventListener('input', (e) => {
-        e.target.value = e.target.value.replace(/[\-\.\w]+@([\w]+\.)+[\w]+/gi, '')
+        e.target.value = e.target.value.replace(/[^\w\-\@\.\!\~\*\']/gi, '')
     });
     mainNumber.addEventListener('input', (e) => {
-        e.target.value = e.target.value.replace(/[\D\^-]/, '');
+        e.target.value = e.target.value.replace(/[^\d\-\(\)]/, '');
     });
+    // калькулятор
     calcInput[1].addEventListener('input', (e) => {
         e.target.value = e.target.value.replace(/[^\d]/, '');
     });
@@ -38,9 +29,18 @@ const textForm = () => {
     calcInput[3].addEventListener('input', (e) => {
         e.target.value = e.target.value.replace(/[^\d]/, '');
     });
-    // mainEmail.addEventListener('input', (e) => {
-    //     e.target.value = e.target.value.replace(/[\-\.\w]+@([\w]+\.)+[\w]+/gi, '')
-    // });
-
+    // форма с оставшимися вопросами
+    questionFormName.addEventListener('input', (e) => {
+        e.target.value = e.target.value.replace(/[^\d]/, '')
+    });
+    questionFormEmail.addEventListener('input', (e) => {
+        e.target.value = e.target.value.replace(/[^\w\-\@\.\!\~\*\']/gi, '')
+    });
+    questionFormNumber.addEventListener('input', (e) => {
+        e.target.value = e.target.value.replace(/[^\d\-\(\)]/, '')
+    });
+    questionFormMassage.addEventListener('input', (e) => {
+        e.target.value = e.target.value.replace(/[^\а-яА-Я]/, '')
+    });
 };
 export default textForm;
