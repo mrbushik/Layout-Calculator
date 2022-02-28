@@ -14,12 +14,22 @@ const menu = () => {
     };
 
     menuBtn.addEventListener('click', handleMenu);
-    closeBtn.addEventListener('click', () => {
-        event.preventDefault();
-        handleMenu();
+
+    menu.addEventListener('click', (e) => {
+        if (e.target.classList == 'close-btn') {
+            event.preventDefault();
+            handleMenu();
+        }
+        menuItems.forEach((menuItem) => {
+            if (e.target === menuItem) {
+                handleMenu();
+            } else if (e.target.classList === 'close-btn') {
+                handleMenu();
+            }
+        });
+
     });
-    // это перебор кнопок 
-    menuItems.forEach(menuItem => menuItem.addEventListener('click', handleMenu));
+
 
 };
 export default menu;
