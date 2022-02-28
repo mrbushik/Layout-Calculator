@@ -9,12 +9,12 @@ const textForm = () => {
     const questionFormMassage = document.getElementById('form2-message');
 
     //Первая форма
-    console.log(questionFormName)
+
     mainName.addEventListener('input', (e) => {
         e.target.value = e.target.value.replace(/[^а-яА-Я]/, '');
     });
     mainEmail.addEventListener('input', (e) => {
-        e.target.value = e.target.value.replace(/[^\w\-\@\.\!\~\*\']/gi, '')
+        e.target.value = e.target.value.replace(/[^\w\-\@\.\!\~\*\']/gi, '');
     });
     mainNumber.addEventListener('input', (e) => {
         e.target.value = e.target.value.replace(/[^\d\-\(\)]/, '');
@@ -31,16 +31,16 @@ const textForm = () => {
     });
     // форма с оставшимися вопросами
     questionFormName.addEventListener('input', (e) => {
-        e.target.value = e.target.value.replace(/[^\d]/, '')
+        e.target.value = e.target.value.replace(/[^\d]/, '');
     });
     questionFormEmail.addEventListener('input', (e) => {
-        e.target.value = e.target.value.replace(/[^\w\-\@\.\!\~\*\']/gi, '')
+        e.target.value = e.target.value.replace(/[^\w\-\@\.\!\~\*\']/gi, '');
     });
     questionFormNumber.addEventListener('input', (e) => {
-        e.target.value = e.target.value.replace(/[^\d\-\(\)]/, '')
+        e.target.value = e.target.value.replace(/[^\d\-\(\)]/, '');
     });
     questionFormMassage.addEventListener('input', (e) => {
-        e.target.value = e.target.value.replace(/[^\а-яА-Я]/, '')
+        e.target.value = e.target.value.replace(/[^\а-яА-Я]/, '');
     });
 };
 export default textForm;
