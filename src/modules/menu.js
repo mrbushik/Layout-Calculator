@@ -13,16 +13,19 @@ const menu = () => {
 
     };
     // как я понял что делегирование вешать  только на одну кнопку меню это плохо
+    // но по заданию сказано сделать делегированние поэтору реализовал это 
     header.addEventListener('click', (e) => {
         if (e.target.closest('.menu')) {
             handleMenu();
         }
     });
+
+    //обычний обработчик для открытия меню
     // menuBtn.addEventListener('click', handleMenu);
 
     menu.addEventListener('click', (e) => {
         if (e.target.classList == 'close-btn') {
-            event.preventDefault();
+            e.preventDefault();
             handleMenu();
         }
         menuItems.forEach((menuItem) => {
