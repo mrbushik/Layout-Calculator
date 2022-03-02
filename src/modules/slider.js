@@ -20,6 +20,7 @@ const slider = () => {
             quantityDots--;
 
         }
+        dots[0].classList.add('dot-active');
     };
 
 
