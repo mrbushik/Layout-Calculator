@@ -1,9 +1,14 @@
+import {
+    animate
+} from "./helper";
 const menu = () => {
     const menuBtn = document.querySelector('.menu');
     const menu = document.querySelector('menu');
     const closeBtn = menu.querySelector('.close-btn');
     const menuItems = menu.querySelectorAll('ul>li>a');
-    const header = document.querySelector('header')
+    const header = document.querySelector('header');
+    menu.style.opacity = 0;
+
     const handleMenu = () => {
         //убираем анимацию если разрешение меньше 768 px
         if (document.documentElement.offsetWidth > 768) {
@@ -38,6 +43,14 @@ const menu = () => {
 
     });
 
-
+    // animate({
+    //     duration: 10000,
+    //     timing(timeFraction) {
+    //         return timeFraction;
+    //     },
+    //     draw(progress) {
+    //         menu.style.opacity = progress;
+    //     }
+    // });
 };
 export default menu;

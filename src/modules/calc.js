@@ -1,3 +1,6 @@
+import {
+    animate
+} from "./helper";
 const calc = (price = 100) => {
     const calcBlock = document.querySelector('.calc-block');
     const calcType = document.querySelector('.calc-type');
@@ -6,7 +9,7 @@ const calc = (price = 100) => {
     const calcDay = document.querySelector('.calc-day');
     const total = document.getElementById('total');
     const calcTypeOption = calcType.querySelectorAll('option');
-    console.log(calcTypeOption);
+    total.style.opacity = 0;
 
     const countCalc = () => {
         const calcTypeValue = +calcType.options[calcType.selectedIndex].value;
@@ -40,6 +43,18 @@ const calc = (price = 100) => {
         if (e.target === calcType || e.target === calcSquare ||
             e.target === calcCount || e.target === calcDay) {
             countCalc();
+            animate({
+                duration: 1000,
+                timing(x, timeFraction) {
+                    return timeFraction;
+                },
+                draw(progress) {
+
+                    total.style.opacity = progress;
+
+                }
+
+            });
         }
     });
     calcType.addEventListener('change', () => {
@@ -48,5 +63,6 @@ const calc = (price = 100) => {
         calcDay.value = '';
         total.textContent = 0;
     });
+
 };
 export default calc;

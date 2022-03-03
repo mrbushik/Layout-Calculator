@@ -1,3 +1,6 @@
+import {
+    animate
+} from "./helper";
 const modal = () => {
     const buttons = document.querySelectorAll('.popup-btn');
     const modal = document.querySelector('.popup');
@@ -8,28 +11,40 @@ const modal = () => {
 
     buttons.forEach(btn => {
         btn.addEventListener('click', () => {
-            let count = 0;
-            let idInterval;
-
-            content.style.top = '0%';
-            const anim = () => {
-
-                if (document.documentElement.offsetWidth < 768) {
+            animate({
+                duration: 500,
+                timing(x, timeFraction) {
+                    return Math.pow(timeFraction, 2) * ((x + 1) * timeFraction - x);
+                },
+                draw(progress) {
                     modal.style.display = 'block';
-                } else {
-                    count++;
-                    idInterval = requestAnimationFrame(anim);
-
-                    if (count <= 20) {
-                        modal.style.display = 'block';
-                        content.style.top = count * 0.8 + '%';
-                    } else {
-                        cancelAnimationFrame(idInterval);
-                    }
+                    content.style.top = progress * 25 + '%';
+                    console.log(progress);
                 }
-            };
+            });
 
-            anim();
+            // let count = 0;
+            // let idInterval;
+
+            // content.style.top = '0%';
+            // const anim = () => {
+
+            //     if (document.documentElement.offsetWidth < 768) {
+            //         modal.style.display = 'block';
+            //     } else {
+            //         count++;
+            //         idInterval = requestAnimationFrame(anim);
+
+            //         if (count <= 20) {
+            //             modal.style.display = 'block';
+            //             content.style.top = count * 0.8 + '%';
+            //         } else {
+            //             cancelAnimationFrame(idInterval);
+            //         }
+            //     }
+            // };
+
+            // anim();
         });
     });
 
