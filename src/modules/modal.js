@@ -19,32 +19,9 @@ const modal = () => {
                 draw(progress) {
                     modal.style.display = 'block';
                     content.style.top = progress * 25 + '%';
-                    console.log(progress);
                 }
             });
 
-            // let count = 0;
-            // let idInterval;
-
-            // content.style.top = '0%';
-            // const anim = () => {
-
-            //     if (document.documentElement.offsetWidth < 768) {
-            //         modal.style.display = 'block';
-            //     } else {
-            //         count++;
-            //         idInterval = requestAnimationFrame(anim);
-
-            //         if (count <= 20) {
-            //             modal.style.display = 'block';
-            //             content.style.top = count * 0.8 + '%';
-            //         } else {
-            //             cancelAnimationFrame(idInterval);
-            //         }
-            //     }
-            // };
-
-            // anim();
         });
     });
 

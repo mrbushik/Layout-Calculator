@@ -7,17 +7,20 @@ const textForm = () => {
     const questionFormEmail = document.getElementById('form2-email');
     const questionFormNumber = document.getElementById('form2-phone');
     const questionFormMassage = document.getElementById('form2-message');
+    const modalName = document.getElementById('form3-name');
+    const modalPhone = document.getElementById('form3-phone');
+    const modalEmail = document.getElementById('form3-email');
 
     //Первая форма
 
     mainName.addEventListener('input', (e) => {
-        e.target.value = e.target.value.replace(/[^а-яА-Я]/, '');
+        e.target.value = e.target.value.replace(/[^а-яА-Я\s]/, '');
     });
     mainEmail.addEventListener('input', (e) => {
         e.target.value = e.target.value.replace(/[^\w\-\@\.\!\~\*\']/gi, '');
     });
     mainNumber.addEventListener('input', (e) => {
-        e.target.value = e.target.value.replace(/[^\d\-\(\)]/, '');
+        e.target.value = e.target.value.replace(/[^\d\-\(\)\+]/, '');
     });
     // калькулятор
     calcInput[1].addEventListener('input', (e) => {
@@ -31,16 +34,26 @@ const textForm = () => {
     });
     // форма с оставшимися вопросами
     questionFormName.addEventListener('input', (e) => {
-        e.target.value = e.target.value.replace(/[^\d]/, '');
+        e.target.value = e.target.value.replace(/[^\а-яА-Я\s]/, '');
     });
     questionFormEmail.addEventListener('input', (e) => {
         e.target.value = e.target.value.replace(/[^\w\-\@\.\!\~\*\']/gi, '');
     });
     questionFormNumber.addEventListener('input', (e) => {
-        e.target.value = e.target.value.replace(/[^\d\-\(\)]/, '');
+        e.target.value = e.target.value.replace(/[^\d\-\(\)\+]/, '');
     });
     questionFormMassage.addEventListener('input', (e) => {
         e.target.value = e.target.value.replace(/[^\а-яА-Я]/, '');
+    });
+    //модалка
+    modalName.addEventListener('input', (e) => {
+        e.target.value = e.target.value.replace(/[^а-яА-Я\s]/, '');
+    });
+    modalPhone.addEventListener('input', (e) => {
+        e.target.value = e.target.value.replace(/[^\d\-\(\)\+]/, '');
+    });
+    modalEmail.addEventListener('input', (e) => {
+        e.target.value = e.target.value.replace(/[^\w\-\@\.\!\~\*\']/gi, '');
     });
 };
 export default textForm;
