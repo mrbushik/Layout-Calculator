@@ -43,14 +43,14 @@ const menu = () => {
 
     });
 
-    // animate({
-    //     duration: 10000,
-    //     timing(timeFraction) {
-    //         return timeFraction;
-    //     },
-    //     draw(progress) {
-    //         menu.style.opacity = progress;
-    //     }
-    // });
+    animate({
+        duration: 10000,
+        timing(timeFraction) {
+            return timeFraction;
+        },
+        draw(progress) {
+            menu.style.opacity = progress;
+        }
+    });
 };
 export default menu;

@@ -25,6 +25,7 @@
              } else if (nameInput.value.length < 2) {
                  success = false;
 
+                 //проверка на количество цифр в номере
              } else if (phoneInput.value.length < 4 || phoneInput.value.length > 16) {
                  success = false;
              }
