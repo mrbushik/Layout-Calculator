@@ -8,7 +8,7 @@ const calc = (price = 100) => {
     const calcCount = document.querySelector('.calc-count');
     const calcDay = document.querySelector('.calc-day');
     const total = document.getElementById('total');
-    const calcTypeOption = calcType.querySelectorAll('option');
+    const calcTypeOne = calcType.querySelector('option');
     total.style.opacity = 0;
 
     const countCalc = () => {
@@ -57,7 +57,7 @@ const calc = (price = 100) => {
             });
         }
     });
-    calcType.addEventListener('change', () => {
+    calcTypeOne.addEventListener('click', () => {
         calcSquare.value = '';
         calcCount.value = '';
         calcDay.value = '';
