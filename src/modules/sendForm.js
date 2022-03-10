@@ -14,7 +14,12 @@
      const errorText = 'Ошибка...';
      const successText = 'Спасибо, наш менеджер с вами свяжется';
 
+     const deleteStatusBlock = () => {
+         statusBlock.textContent = '';
+     };
+
      const validate = (list) => {
+         nameInput.value.trim()
          let success = true;
          list.forEach((input) => {
              //   if (!input.classList.contains('success')) {
@@ -44,6 +49,8 @@
      };
 
      const submitForm = () => {
+
+         console.log(nameInput.value);
          statusBlock.textContent = loadText;
          form.append(statusBlock);
          const formDate = new FormData(form);
@@ -69,6 +76,7 @@
                  .then(data => {
                      console.log(data);
                      statusBlock.textContent = successText;
+                     setTimeout(deleteStatusBlock, 3000);
                      formElements.forEach(input => {
                          input.value = '';
                      });
@@ -78,6 +86,7 @@
                  });
          } else {
              statusBlock.textContent = errorText;
+             setTimeout(deleteStatusBlock, 3000);
              alert('заполните все формы');
 
          }
@@ -94,6 +103,4 @@
      } catch (error) {
          console.log(error.message);
      }
-
-
  };

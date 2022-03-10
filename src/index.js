@@ -8,7 +8,7 @@ import calc from './modules/calc';
 import {
     sendForm
 } from './modules/sendForm';
-timer('25 february 2022');
+timer('15 march 2022');
 menu();
 momdal();
 textForm();
