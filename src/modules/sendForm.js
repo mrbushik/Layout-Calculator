@@ -19,7 +19,7 @@
      };
 
      const validate = (list) => {
-         nameInput.value.trim()
+         nameInput.value.trim();
          let success = true;
          list.forEach((input) => {
              //   if (!input.classList.contains('success')) {
@@ -34,7 +34,7 @@
              } else if (phoneInput.value.length < 4 || phoneInput.value.length > 16) {
                  success = false;
              }
-         })
+         });
          return success;
      };
 

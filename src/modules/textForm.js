@@ -14,7 +14,7 @@ const textForm = () => {
     //Первая форма
 
     mainName.addEventListener('input', (e) => {
-        e.target.value = e.target.value.replace(/[^а-яА-Я\s]/, '');
+        e.target.value = e.target.value.replace(/[^а-яА-Я\s]/, '').trimLeft();
     });
     mainEmail.addEventListener('input', (e) => {
         e.target.value = e.target.value.replace(/[^\w\-\@\.\!\~\*\']/gi, '');
@@ -34,7 +34,7 @@ const textForm = () => {
     });
     // форма с оставшимися вопросами
     questionFormName.addEventListener('input', (e) => {
-        e.target.value = e.target.value.replace(/[^\а-яА-Я\s]/, '');
+        e.target.value = e.target.value.replace(/[^\а-яА-Я\s]/, '').trimLeft();
     });
     questionFormEmail.addEventListener('input', (e) => {
         e.target.value = e.target.value.replace(/[^\w\-\@\.\!\~\*\']/gi, '');
@@ -47,7 +47,7 @@ const textForm = () => {
     });
     //модалка
     modalName.addEventListener('input', (e) => {
-        e.target.value = e.target.value.replace(/[^а-яА-Я\s]/, '');
+        e.target.value = e.target.value.replace(/[^а-яА-Я\s]/, '').trimLeft();
     });
     modalPhone.addEventListener('input', (e) => {
         e.target.value = e.target.value.replace(/[^\d\-\(\)\+]/, '');
