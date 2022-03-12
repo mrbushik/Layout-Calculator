@@ -22,7 +22,6 @@
          nameInput.value.trim();
          let success = true;
          list.forEach((input) => {
-             //   if (!input.classList.contains('success')) {
              if (input.value.trim() === '') {
                  success = false;
                  //проверка на буквы в имени
