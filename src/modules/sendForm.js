@@ -1,3 +1,4 @@
+ 'use strict';
  export const sendForm = ({
      formId,
      someElem = []
@@ -13,7 +14,6 @@
      const loadText = 'загрузка...';
      const errorText = 'Ошибка...';
      const successText = 'Спасибо, наш менеджер с вами свяжется';
-
      const deleteStatusBlock = () => {
          statusBlock.textContent = '';
      };
@@ -50,7 +50,7 @@
 
      const submitForm = () => {
 
-         console.log(nameInput.value);
+         //  console.log(nameInput.value);
          statusBlock.textContent = loadText;
          form.append(statusBlock);
          const formDate = new FormData(form);
@@ -60,15 +60,18 @@
          formDate.forEach((val, key) => {
              formBody[key] = val;
          });
-
          someElem.forEach((elem) => {
              const element = document.getElementById(elem.id);
+             if (element.textContent === '0') {
 
-             if (elem.type === 'block') {
-                 formBody[elem.id] = element.textContent;
-             } else if (elem.type === 'input') {
-                 formBody[elem.id] = element.value;
+             } else {
+                 if (elem.type === 'block') {
+                     formBody[elem.id] = element.textContent;
+                 } else if (elem.type === 'input') {
+                     formBody[elem.id] = element.value;
+                 }
              }
+
          });
 
          if (validate(formElements)) {
